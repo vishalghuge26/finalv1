@@ -8,12 +8,6 @@ const scoreEl = document.getElementById('score-val');
 const highEl = document.getElementById('high-val');
 const finalScoreEl = document.getElementById('final-score');
 
-// Buttons
-const leftBtn = document.getElementById('left-btn');
-const rightBtn = document.getElementById('right-btn');
-const restartBtn = document.getElementById('restart-btn');
-const pauseBtn = document.getElementById('pause-btn');
-
 // Overlays
 const overlay = document.getElementById('overlay');
 const preload = document.getElementById('preload');
@@ -31,7 +25,7 @@ const laneWidth = canvas.width / laneCount;
 let playerLane = 1;
 const playerY = canvas.height - 150;
 
-// Sprite sizing (keep proportions)
+// Sprite sizing
 const CAR_WIDTH = laneWidth * 0.8; 
 const CAR_HEIGHT = CAR_WIDTH * 2; // 1:2 ratio
 const COIN_SIZE = laneWidth * 0.5;
@@ -168,18 +162,13 @@ function moveRight() {
     if (playerLane < laneCount - 1) playerLane++;
 }
 
+// Keyboard controls
 document.addEventListener('keydown', e => {
     if (e.key === 'ArrowLeft' || e.key === 'a') moveLeft();
     if (e.key === 'ArrowRight' || e.key === 'd') moveRight();
 });
 
-// Button clicks
-leftBtn.addEventListener('click', moveLeft);
-rightBtn.addEventListener('click', moveRight);
-pauseBtn.addEventListener('click', () => paused = !paused);
-restartBtn.addEventListener('click', startGame);
-
-// Tap screen controls
+// Tap/Click screen controls
 canvas.addEventListener('click', e => {
     const rect = canvas.getBoundingClientRect();
     const clickX = e.clientX - rect.left;
@@ -204,7 +193,6 @@ function endGame() {
     overlay.classList.remove('hidden');
     finalScoreEl.textContent = score;
 
-    // Stop spawning
     clearInterval(enemyInterval);
     clearInterval(coinInterval);
 }
@@ -219,11 +207,9 @@ function startGame() {
     paused = false;
     overlay.classList.add('hidden');
 
-    // Clear old timers before setting new ones
     clearInterval(enemyInterval);
     clearInterval(coinInterval);
 
-    // Spawn timers
     enemyInterval = setInterval(spawnEnemy, 1500);
     coinInterval = setInterval(spawnCoin, 2000);
 }
