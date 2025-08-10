@@ -13,7 +13,6 @@ const leftBtn = document.getElementById('left-btn');
 const rightBtn = document.getElementById('right-btn');
 const restartBtn = document.getElementById('restart-btn');
 const pauseBtn = document.getElementById('pause-btn');
-const muteBtn = document.getElementById('mute-btn');
 
 // Overlays
 const overlay = document.getElementById('overlay');
@@ -32,6 +31,11 @@ const laneWidth = canvas.width / laneCount;
 let playerLane = 1;
 const playerY = canvas.height - 150;
 
+// Sprite sizing (keep proportions)
+const CAR_WIDTH = laneWidth * 0.8; 
+const CAR_HEIGHT = CAR_WIDTH * 2; // 1:2 ratio
+const COIN_SIZE = laneWidth * 0.5;
+
 // Assets
 let assets = {};
 const assetList = [
@@ -46,6 +50,9 @@ let enemies = [];
 let coins = [];
 const enemySpeed = 4;
 const coinSpeed = 4;
+
+// Interval trackers
+let enemyInterval, coinInterval;
 
 // Preload images
 function loadAssets(list, callback) {
@@ -66,31 +73,34 @@ function loadAssets(list, callback) {
 // Spawn enemies
 function spawnEnemy() {
     const lane = Math.floor(Math.random() * laneCount);
-    enemies.push({ lane: lane, y: -100 });
+    enemies.push({ lane: lane, y: -CAR_HEIGHT });
 }
 
 // Spawn coins
 function spawnCoin() {
     const lane = Math.floor(Math.random() * laneCount);
-    coins.push({ lane: lane, y: -50 });
+    coins.push({ lane: lane, y: -COIN_SIZE });
 }
 
 // Draw player
 function drawPlayer() {
-    ctx.drawImage(assets.player, playerLane * laneWidth, playerY, laneWidth, 100);
+    const x = playerLane * laneWidth + (laneWidth - CAR_WIDTH) / 2;
+    ctx.drawImage(assets.player, x, playerY, CAR_WIDTH, CAR_HEIGHT);
 }
 
 // Draw enemies
 function drawEnemies() {
     enemies.forEach(enemy => {
-        ctx.drawImage(assets.enemy, enemy.lane * laneWidth, enemy.y, laneWidth, 100);
+        const x = enemy.lane * laneWidth + (laneWidth - CAR_WIDTH) / 2;
+        ctx.drawImage(assets.enemy, x, enemy.y, CAR_WIDTH, CAR_HEIGHT);
     });
 }
 
 // Draw coins
 function drawCoins() {
     coins.forEach(coin => {
-        ctx.drawImage(assets.coin, coin.lane * laneWidth + laneWidth / 4, coin.y, laneWidth / 2, laneWidth / 2);
+        const x = coin.lane * laneWidth + (laneWidth - COIN_SIZE) / 2;
+        ctx.drawImage(assets.coin, x, coin.y, COIN_SIZE, COIN_SIZE);
     });
 }
 
@@ -103,7 +113,11 @@ function update() {
         if (enemy.y > canvas.height) enemies.splice(enemies.indexOf(enemy), 1);
 
         // Collision with player
-        if (enemy.lane === playerLane && enemy.y + 100 > playerY && enemy.y < playerY + 100) {
+        if (
+            enemy.lane === playerLane &&
+            enemy.y + CAR_HEIGHT > playerY &&
+            enemy.y < playerY + CAR_HEIGHT
+        ) {
             endGame();
         }
     });
@@ -113,7 +127,11 @@ function update() {
         if (coin.y > canvas.height) coins.splice(coins.indexOf(coin), 1);
 
         // Coin collection
-        if (coin.lane === playerLane && coin.y + 50 > playerY && coin.y < playerY + 100) {
+        if (
+            coin.lane === playerLane &&
+            coin.y + COIN_SIZE > playerY &&
+            coin.y < playerY + CAR_HEIGHT
+        ) {
             score += 10;
             coins.splice(coins.indexOf(coin), 1);
             updateScore();
@@ -155,12 +173,22 @@ document.addEventListener('keydown', e => {
     if (e.key === 'ArrowRight' || e.key === 'd') moveRight();
 });
 
+// Button clicks
 leftBtn.addEventListener('click', moveLeft);
 rightBtn.addEventListener('click', moveRight);
-
 pauseBtn.addEventListener('click', () => paused = !paused);
-
 restartBtn.addEventListener('click', startGame);
+
+// Tap screen controls
+canvas.addEventListener('click', e => {
+    const rect = canvas.getBoundingClientRect();
+    const clickX = e.clientX - rect.left;
+    if (clickX < canvas.width / 2) {
+        moveLeft();
+    } else {
+        moveRight();
+    }
+});
 
 function updateScore() {
     scoreEl.textContent = score;
@@ -175,6 +203,10 @@ function endGame() {
     gameOver = true;
     overlay.classList.remove('hidden');
     finalScoreEl.textContent = score;
+
+    // Stop spawning
+    clearInterval(enemyInterval);
+    clearInterval(coinInterval);
 }
 
 function startGame() {
@@ -187,9 +219,13 @@ function startGame() {
     paused = false;
     overlay.classList.add('hidden');
 
+    // Clear old timers before setting new ones
+    clearInterval(enemyInterval);
+    clearInterval(coinInterval);
+
     // Spawn timers
-    setInterval(spawnEnemy, 1500);
-    setInterval(spawnCoin, 2000);
+    enemyInterval = setInterval(spawnEnemy, 1500);
+    coinInterval = setInterval(spawnCoin, 2000);
 }
 
 // Start after assets load
