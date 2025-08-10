@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>4-Lane Car Dodger</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="game-wrap">
+    <div id="preload" class="overlay">
+      <div class="box">
+        <h1>Loading...</h1>
+        <div id="progress-bar"><div id="progress-fill"></div></div>
+        <div id="progress-text">0%</div>
+      </div>
+    </div>
+
+    <header id="hud">
+      <div id="score">Score: <span id="score-val">0</span></div>
+      <div id="controls-top">
+        <button id="mute-btn" title="Toggle sound">🔊</button>
+        <button id="pause-btn" title="Pause">⏸️</button>
+      </div>
+      <div id="highscore">High: <span id="high-val">0</span></div>
+    </header>
+
+    <main id="canvas-container">
+      <canvas id="game-canvas" width="480" height="800"></canvas>
+
+      <!-- Mobile controls -->
+      <div id="touch-controls">
+        <button id="left-btn" class="tri left" aria-label="Left"></button>
+        <button id="right-btn" class="tri right" aria-label="Right"></button>
+      </div>
+    </main>
+
+    <div id="overlay" class="overlay hidden">
+      <div class="box" id="gameover-box">
+        <h1 id="overlay-title">Game Over</h1>
+        <p>Final score: <strong id="final-score">0</strong></p>
+        <button id="restart-btn">Restart</button>
+      </div>
+    </div>
+
+    <footer id="footer">
+      <small>Use ← → or A / D on keyboard. Touch triangles on mobile.</small>
+    </footer>
+  </div>
+
+  <script src="js/game.js"></script>
+</body>
+</html>
