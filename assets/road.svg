@@ -1,15 +1,72 @@
 <!-- assets/road.svg -->
 <svg xmlns="http://www.w3.org/2000/svg" width="256" height="512" viewBox="0 0 256 512">
-  <rect width="100%" height="100%" fill="#5b5b5b"/>
-  <rect x="0" y="0" width="32" height="100%" fill="#444"/>
-  <rect x="224" y="0" width="32" height="100%" fill="#444"/>
-  <!-- dashed lane dividers (3) -->
+  <!-- Asphalt -->
+  <rect width="256" height="512" fill="#5b5b5b"/>
+
+  <!-- Side borders -->
+  <rect x="0" y="0" width="32" height="512" fill="#444"/>
+  <rect x="224" y="0" width="32" height="512" fill="#444"/>
+
+  <!-- Lane dividers -->
   <g fill="#fff">
-    <!-- lane 1 divider -->
-    ${Array.from({length:16}).map((_,k)=>`<rect x="${32 + (192/4)*1 -3}" y="${k*32}" width="6" height="18" />`).join('')}
-    <!-- lane 2 -->
-    ${Array.from({length:16}).map((_,k)=>`<rect x="${32 + (192/4)*2 -3}" y="${k*32}" width="6" height="18" />`).join('')}
-    <!-- lane 3 -->
-    ${Array.from({length:16}).map((_,k)=>`<rect x="${32 + (192/4)*3 -3}" y="${k*32}" width="6" height="18" />`).join('')}
+    <!-- First divider -->
+    <g>
+      <rect x="80" y="0" width="6" height="18"/>
+      <rect x="80" y="32" width="6" height="18"/>
+      <rect x="80" y="64" width="6" height="18"/>
+      <rect x="80" y="96" width="6" height="18"/>
+      <rect x="80" y="128" width="6" height="18"/>
+      <rect x="80" y="160" width="6" height="18"/>
+      <rect x="80" y="192" width="6" height="18"/>
+      <rect x="80" y="224" width="6" height="18"/>
+      <rect x="80" y="256" width="6" height="18"/>
+      <rect x="80" y="288" width="6" height="18"/>
+      <rect x="80" y="320" width="6" height="18"/>
+      <rect x="80" y="352" width="6" height="18"/>
+      <rect x="80" y="384" width="6" height="18"/>
+      <rect x="80" y="416" width="6" height="18"/>
+      <rect x="80" y="448" width="6" height="18"/>
+      <rect x="80" y="480" width="6" height="18"/>
+    </g>
+
+    <!-- Second divider -->
+    <g>
+      <rect x="128" y="0" width="6" height="18"/>
+      <rect x="128" y="32" width="6" height="18"/>
+      <rect x="128" y="64" width="6" height="18"/>
+      <rect x="128" y="96" width="6" height="18"/>
+      <rect x="128" y="128" width="6" height="18"/>
+      <rect x="128" y="160" width="6" height="18"/>
+      <rect x="128" y="192" width="6" height="18"/>
+      <rect x="128" y="224" width="6" height="18"/>
+      <rect x="128" y="256" width="6" height="18"/>
+      <rect x="128" y="288" width="6" height="18"/>
+      <rect x="128" y="320" width="6" height="18"/>
+      <rect x="128" y="352" width="6" height="18"/>
+      <rect x="128" y="384" width="6" height="18"/>
+      <rect x="128" y="416" width="6" height="18"/>
+      <rect x="128" y="448" width="6" height="18"/>
+      <rect x="128" y="480" width="6" height="18"/>
+    </g>
+
+    <!-- Third divider -->
+    <g>
+      <rect x="176" y="0" width="6" height="18"/>
+      <rect x="176" y="32" width="6" height="18"/>
+      <rect x="176" y="64" width="6" height="18"/>
+      <rect x="176" y="96" width="6" height="18"/>
+      <rect x="176" y="128" width="6" height="18"/>
+      <rect x="176" y="160" width="6" height="18"/>
+      <rect x="176" y="192" width="6" height="18"/>
+      <rect x="176" y="224" width="6" height="18"/>
+      <rect x="176" y="256" width="6" height="18"/>
+      <rect x="176" y="288" width="6" height="18"/>
+      <rect x="176" y="320" width="6" height="18"/>
+      <rect x="176" y="352" width="6" height="18"/>
+      <rect x="176" y="384" width="6" height="18"/>
+      <rect x="176" y="416" width="6" height="18"/>
+      <rect x="176" y="448" width="6" height="18"/>
+      <rect x="176" y="480" width="6" height="18"/>
+    </g>
   </g>
 </svg>
