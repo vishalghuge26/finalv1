@@ -1,58 +1,34 @@
-<!-- assets/enemy_grey.svg (no grille) -->
-<svg xmlns="http://www.w3.org/2000/svg" width="64" height="128" viewBox="0 0 64 128" role="img" aria-label="Enemy car">
-  <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
-    <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#000" flood-opacity="0.35"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="128" viewBox="0 0 64 128">
+  <!-- Glow -->
+  <filter id="ghostGlow" x="-50%" y="-50%" width="200%" height="200%">
+    <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#aa00ff" flood-opacity="0.6"/>
   </filter>
 
+  <!-- Body (smaller height, centered vertically) -->
+  <path d="M16 50 
+           Q32 30 48 50
+           L48 85
+           Q44 83 40 88
+           Q36 83 32 88
+           Q28 83 24 88
+           Q20 83 16 85
+           Z"
+        fill="url(#ghostBody)" stroke="#660099" stroke-width="2" filter="url(#ghostGlow)"/>
+
+  <!-- Eyes -->
+  <circle cx="24" cy="60" r="4" fill="white" stroke="#222" stroke-width="1"/>
+  <circle cx="40" cy="60" r="4" fill="white" stroke="#222" stroke-width="1"/>
+  <circle cx="24" cy="60" r="1.5" fill="#222"/>
+  <circle cx="40" cy="60" r="1.5" fill="#222"/>
+
+  <!-- Mouth -->
+  <path d="M24 70 Q32 76 40 70" stroke="#222" stroke-width="2" fill="none"/>
+
+  <!-- Gradients -->
   <defs>
-    <linearGradient id="greyBody" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#f4f4f5"/>
-      <stop offset="60%" stop-color="#c6c6c9"/>
-      <stop offset="100%" stop-color="#8d8d90"/>
-    </linearGradient>
-    <linearGradient id="roofShade" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.7"/>
-      <stop offset="100%" stop-color="#d6d6d8" stop-opacity="0.5"/>
+    <linearGradient id="ghostBody" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#dd99ff"/>
+      <stop offset="100%" stop-color="#6600aa"/>
     </linearGradient>
   </defs>
-
-  <!-- wheels -->
-  <rect x="0" y="24" width="10" height="20" rx="3" fill="#222" stroke="#000" stroke-width="0.8"/>
-  <rect x="0" y="84" width="10" height="20" rx="3" fill="#222" stroke="#000" stroke-width="0.8"/>
-  <rect x="54" y="24" width="10" height="20" rx="3" fill="#222" stroke="#000" stroke-width="0.8"/>
-  <rect x="54" y="84" width="10" height="20" rx="3" fill="#222" stroke="#000" stroke-width="0.8"/>
-
-  <!-- body -->
-  <path d="M12 8 Q32 0 52 8 L52 120 Q32 128 12 120 Z"
-        fill="url(#greyBody)" stroke="#6a6a6a" stroke-width="1.6" filter="url(#shadow)"/>
-
-  <!-- roof -->
-  <rect x="18" y="32" width="28" height="56" rx="6" ry="6" fill="url(#roofShade)" stroke="#a6a6a8" stroke-width="1"/>
-
-  <!-- windshield -->
-  <path d="M20 14 Q32 8 44 14 L44 28 Q32 30 20 28 Z"
-        fill="#dff8ff" stroke="#6b6f73" stroke-width="1"/>
-
-  <!-- rear window -->
-  <path d="M20 96 Q32 100 44 96 L44 112 Q32 118 20 112 Z"
-        fill="#dff8ff" stroke="#6b6f73" stroke-width="1"/>
-
-  <!-- hood & trunk lines -->
-  <line x1="14" y1="38" x2="50" y2="38" stroke="#9b9b9d" stroke-width="0.9" opacity="0.6"/>
-  <line x1="14" y1="90" x2="50" y2="90" stroke="#9b9b9d" stroke-width="0.9" opacity="0.6"/>
-
-  <!-- headlights -->
-  <g>
-    <rect x="16" y="4" width="8" height="6" rx="2" fill="#fffde6" stroke="#e0c94d" stroke-width="0.8"/>
-    <rect x="40" y="4" width="8" height="6" rx="2" fill="#fffde6" stroke="#e0c94d" stroke-width="0.8"/>
-  </g>
-
-  <!-- tail lights -->
-  <g>
-    <rect x="16" y="118" width="8" height="6" rx="2" fill="#a33" stroke="#5b1212" stroke-width="0.6"/>
-    <rect x="40" y="118" width="8" height="6" rx="2" fill="#a33" stroke="#5b1212" stroke-width="0.6"/>
-  </g>
-
-  <!-- roof stripe -->
-  <rect x="30" y="48" width="4" height="28" rx="2" ry="2" fill="#f7f7f8" opacity="0.35"/>
 </svg>
