@@ -1,129 +1,48 @@
-<!-- assets/road_with_trees.svg -->
-<svg xmlns="http://www.w3.org/2000/svg" width="256" height="512" viewBox="0 0 256 512">
-  <!-- Asphalt -->
-  <rect width="256" height="512" fill="#5b5b5b"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="800" viewBox="0 0 400 800">
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#020010"/>
+      <stop offset="100%" stop-color="#050520"/>
+    </linearGradient>
 
-  <!-- Side borders -->
-  <rect x="0" y="0" width="32" height="512" fill="#444"/>
-  <rect x="224" y="0" width="32" height="512" fill="#444"/>
+    <!-- Nebula cloud -->
+    <radialGradient id="nebulaPurple" cx="30%" cy="40%" r="50%">
+      <stop offset="0%" stop-color="#7a4ccf" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </radialGradient>
+    <radialGradient id="nebulaBlue" cx="70%" cy="60%" r="50%">
+      <stop offset="0%" stop-color="#4ccfff" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </radialGradient>
+  </defs>
 
-  <!-- Lane dividers -->
-  <g fill="#fff">
-    <!-- First divider -->
-    <g>
-      <rect x="80" y="0" width="6" height="18"/>
-      <rect x="80" y="32" width="6" height="18"/>
-      <rect x="80" y="64" width="6" height="18"/>
-      <rect x="80" y="96" width="6" height="18"/>
-      <rect x="80" y="128" width="6" height="18"/>
-      <rect x="80" y="160" width="6" height="18"/>
-      <rect x="80" y="192" width="6" height="18"/>
-      <rect x="80" y="224" width="6" height="18"/>
-      <rect x="80" y="256" width="6" height="18"/>
-      <rect x="80" y="288" width="6" height="18"/>
-      <rect x="80" y="320" width="6" height="18"/>
-      <rect x="80" y="352" width="6" height="18"/>
-      <rect x="80" y="384" width="6" height="18"/>
-      <rect x="80" y="416" width="6" height="18"/>
-      <rect x="80" y="448" width="6" height="18"/>
-      <rect x="80" y="480" width="6" height="18"/>
-    </g>
+  <!-- Main background -->
+  <rect width="400" height="800" fill="url(#bgGradient)"/>
+  <rect width="400" height="800" fill="url(#nebulaPurple)"/>
+  <rect width="400" height="800" fill="url(#nebulaBlue)"/>
 
-    <!-- Second divider -->
-    <g>
-      <rect x="128" y="0" width="6" height="18"/>
-      <rect x="128" y="32" width="6" height="18"/>
-      <rect x="128" y="64" width="6" height="18"/>
-      <rect x="128" y="96" width="6" height="18"/>
-      <rect x="128" y="128" width="6" height="18"/>
-      <rect x="128" y="160" width="6" height="18"/>
-      <rect x="128" y="192" width="6" height="18"/>
-      <rect x="128" y="224" width="6" height="18"/>
-      <rect x="128" y="256" width="6" height="18"/>
-      <rect x="128" y="288" width="6" height="18"/>
-      <rect x="128" y="320" width="6" height="18"/>
-      <rect x="128" y="352" width="6" height="18"/>
-      <rect x="128" y="384" width="6" height="18"/>
-      <rect x="128" y="416" width="6" height="18"/>
-      <rect x="128" y="448" width="6" height="18"/>
-      <rect x="128" y="480" width="6" height="18"/>
-    </g>
-
-    <!-- Third divider -->
-    <g>
-      <rect x="176" y="0" width="6" height="18"/>
-      <rect x="176" y="32" width="6" height="18"/>
-      <rect x="176" y="64" width="6" height="18"/>
-      <rect x="176" y="96" width="6" height="18"/>
-      <rect x="176" y="128" width="6" height="18"/>
-      <rect x="176" y="160" width="6" height="18"/>
-      <rect x="176" y="192" width="6" height="18"/>
-      <rect x="176" y="224" width="6" height="18"/>
-      <rect x="176" y="256" width="6" height="18"/>
-      <rect x="176" y="288" width="6" height="18"/>
-      <rect x="176" y="320" width="6" height="18"/>
-      <rect x="176" y="352" width="6" height="18"/>
-      <rect x="176" y="384" width="6" height="18"/>
-      <rect x="176" y="416" width="6" height="18"/>
-      <rect x="176" y="448" width="6" height="18"/>
-      <rect x="176" y="480" width="6" height="18"/>
-    </g>
-  </g>
-
-  <!-- Trees -->
+  <!-- Large glowing stars -->
   <g>
-    <!-- Left side trees -->
-    <g>
-      <circle cx="16" cy="16" r="14" fill="#228B22"/>
-      <rect x="14" y="16" width="4" height="10" fill="#8B4513"/>
-      
-      <circle cx="16" cy="80" r="14" fill="#228B22"/>
-      <rect x="14" y="80" width="4" height="10" fill="#8B4513"/>
-      
-      <circle cx="16" cy="144" r="14" fill="#228B22"/>
-      <rect x="14" y="144" width="4" height="10" fill="#8B4513"/>
-      
-      <circle cx="16" cy="208" r="14" fill="#228B22"/>
-      <rect x="14" y="208" width="4" height="10" fill="#8B4513"/>
-      
-      <circle cx="16" cy="272" r="14" fill="#228B22"/>
-      <rect x="14" y="272" width="4" height="10" fill="#8B4513"/>
-      
-      <circle cx="16" cy="336" r="14" fill="#228B22"/>
-      <rect x="14" y="336" width="4" height="10" fill="#8B4513"/>
-      
-      <circle cx="16" cy="400" r="14" fill="#228B22"/>
-      <rect x="14" y="400" width="4" height="10" fill="#8B4513"/>
-      
-      <circle cx="16" cy="464" r="14" fill="#228B22"/>
-      <rect x="14" y="464" width="4" height="10" fill="#8B4513"/>
-    </g>
-
-    <!-- Right side trees -->
-    <g>
-      <circle cx="240" cy="48" r="14" fill="#228B22"/>
-      <rect x="238" y="48" width="4" height="10" fill="#8B4513"/>
-      
-      <circle cx="240" cy="112" r="14" fill="#228B22"/>
-      <rect x="238" y="112" width="4" height="10" fill="#8B4513"/>
-      
-      <circle cx="240" cy="176" r="14" fill="#228B22"/>
-      <rect x="238" y="176" width="4" height="10" fill="#8B4513"/>
-      
-      <circle cx="240" cy="240" r="14" fill="#228B22"/>
-      <rect x="238" y="240" width="4" height="10" fill="#8B4513"/>
-      
-      <circle cx="240" cy="304" r="14" fill="#228B22"/>
-      <rect x="238" y="304" width="4" height="10" fill="#8B4513"/>
-      
-      <circle cx="240" cy="368" r="14" fill="#228B22"/>
-      <rect x="238" y="368" width="4" height="10" fill="#8B4513"/>
-      
-      <circle cx="240" cy="432" r="14" fill="#228B22"/>
-      <rect x="238" y="432" width="4" height="10" fill="#8B4513"/>
-      
-      <circle cx="240" cy="496" r="14" fill="#228B22"/>
-      <rect x="238" y="496" width="4" height="10" fill="#8B4513"/>
-    </g>
+    <circle cx="50" cy="120" r="2" fill="white" opacity="0.9"/>
+    <circle cx="320" cy="80" r="2.5" fill="white" opacity="0.9"/>
+    <circle cx="200" cy="300" r="2" fill="white" opacity="0.9"/>
+    <circle cx="80" cy="650" r="2" fill="white" opacity="0.9"/>
+    <circle cx="350" cy="720" r="2.2" fill="white" opacity="0.9"/>
   </g>
+
+  <!-- Smaller stars for depth -->
+  <g fill="white" opacity="0.7">
+    <circle cx="100" cy="50" r="1"/>
+    <circle cx="180" cy="150" r="1.2"/>
+    <circle cx="300" cy="250" r="0.8"/>
+    <circle cx="250" cy="500" r="1"/>
+    <circle cx="120" cy="400" r="0.8"/>
+    <circle cx="280" cy="600" r="1"/>
+    <circle cx="60" cy="750" r="1"/>
+  </g>
+
+  <!-- Shooting star -->
+  <line x1="320" y1="200" x2="350" y2="170" stroke="white" stroke-width="1.5" opacity="0.8"/>
+  <line x1="150" y1="500" x2="180" y2="470" stroke="white" stroke-width="1.5" opacity="0.8"/>
 </svg>
