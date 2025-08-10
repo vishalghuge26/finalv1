@@ -1,7 +1,48 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="64" height="128" viewBox="0 0 64 128">
-  <rect rx="8" ry="8" x="8" y="8" width="48" height="112" fill="#1784d6"/>
-  <rect x="16" y="20" width="32" height="28" rx="4" fill="#ffffff"/>
-  <rect x="16" y="80" width="32" height="28" rx="4" fill="#ffffff"/>
-  <rect x="6" y="92" width="12" height="10" fill="#222"/>
-  <rect x="46" y="92" width="12" height="10" fill="#222"/>
+  <!-- Drop shadow -->
+  <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+    <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#000" flood-opacity="0.4"/>
+  </filter>
+
+  <!-- Wheels -->
+  <rect x="0" y="24" width="10" height="20" rx="4" ry="4" fill="#333" stroke="#000" stroke-width="1"/>
+  <rect x="0" y="84" width="10" height="20" rx="4" ry="4" fill="#333" stroke="#000" stroke-width="1"/>
+  <rect x="54" y="24" width="10" height="20" rx="4" ry="4" fill="#333" stroke="#000" stroke-width="1"/>
+  <rect x="54" y="84" width="10" height="20" rx="4" ry="4" fill="#333" stroke="#000" stroke-width="1"/>
+
+  <!-- Car body base (tapered front & rear) -->
+  <path d="M12 8 
+           Q32 0 52 8
+           L52 120
+           Q32 128 12 120
+           Z"
+        fill="url(#bodyGradient)" stroke="#aa0000" stroke-width="2" filter="url(#shadow)"/>
+
+  <!-- Body gradient -->
+  <defs>
+    <linearGradient id="bodyGradient" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ff5555"/>
+      <stop offset="100%" stop-color="#cc0000"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Windshield -->
+  <path d="M16 12 Q32 6 48 12 L48 28 Q32 30 16 28 Z"
+        fill="#99d6ff" stroke="#004466" stroke-width="1.5"/>
+
+  <!-- Roof -->
+  <rect x="18" y="36" width="28" height="56" rx="6" ry="6"
+        fill="#ff7777" stroke="#aa0000" stroke-width="1.5"/>
+
+  <!-- Rear window -->
+  <path d="M16 100 Q32 102 48 100 L48 116 Q32 122 16 116 Z"
+        fill="#99d6ff" stroke="#004466" stroke-width="1.5"/>
+
+  <!-- Headlights -->
+  <rect x="18" y="4" width="8" height="6" rx="2" ry="2" fill="#ffff99" stroke="#999" stroke-width="1"/>
+  <rect x="38" y="4" width="8" height="6" rx="2" ry="2" fill="#ffff99" stroke="#999" stroke-width="1"/>
+
+  <!-- Tail lights -->
+  <rect x="18" y="118" width="8" height="6" rx="2" ry="2" fill="#ff6666" stroke="#800" stroke-width="1"/>
+  <rect x="38" y="118" width="8" height="6" rx="2" ry="2" fill="#ff6666" stroke="#800" stroke-width="1"/>
 </svg>
